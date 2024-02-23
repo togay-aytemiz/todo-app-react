@@ -7,6 +7,7 @@ const style = {
   text: `ml-2 cursor-pointer`,
   textComplete: `ml-2 cursor-pointer line-through`,
   button: `cursor-pointer flex item-center`,
+  input: `h-4 w-4 my-auto rounded border-gray-300 accent-[#4C64EE] focus:ring-[#4C64EE]`,
 };
 
 const Todo = ({ todo, toggleComplete, deleteTodo }) => {
@@ -18,14 +19,14 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
           type="checkbox"
           checked={completed}
           onChange={() => toggleComplete(todo)}
-          className="w-4"
+          className={style.input}
         />
-        <p
+        <label
           className={!completed ? style.text : style.textComplete}
           onClick={() => toggleComplete(todo)}
         >
           {text}
-        </p>
+        </label>
       </div>
       <button onClick={() => deleteTodo(id)}>{<FaRegTrashAlt />}</button>
     </li>

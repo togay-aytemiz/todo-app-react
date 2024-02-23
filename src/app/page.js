@@ -16,8 +16,8 @@ import { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
 const style = {
-  bg: `h-screen w-screen p-4 bg-gradient-to-r from-indigo-500 to-blue-600`,
-  container: `bg-slate-100 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4`,
+  bg: `p-4`,
+  container: `bg-slate-100 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4 mb-5`,
   heading: `text-3xl font-bold text-center text-gray-800 p-2 mb-4`,
   form: `flex justify-between`,
   input: `border p-2 w-full text-xl rounded-md shadow-sm font-light outline-none`,
@@ -36,6 +36,7 @@ const HomePage = () => {
       alert("Please enter a valid todo text");
       return;
     }
+    setTodoText("");
     await addDoc(collection(db, "todos"), {
       completed: false,
       text: todoText,
